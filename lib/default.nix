@@ -1,7 +1,7 @@
 { pkgs }: {
-  cached-command = { name, command, deps ? [ ], system }:
+  cached-command = { name, command, dependencies ? [ ], system }:
     derivation {
-      inherit name system deps;
+      inherit name system dependencies;
       builder = "${pkgs.bash}/bin/bash";
       args = [ "-c" command ];
     };
